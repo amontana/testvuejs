@@ -1,0 +1,42 @@
+<template>
+  <div class="test-component">
+    <h1>{{ msg }}</h1>
+    <h2>{{ sub }}</h2>
+    <div id="searcher-body">
+     <p>{{ msg }}</div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'test-component',
+  data () {
+    return {
+      msg: 'Prueba primer componente',
+      sub: 'Buscador'
+    }
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+h1, h2 {
+  font-weight: normal;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+a {
+  color: #42b983;
+}
+</style>

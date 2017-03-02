@@ -1,0 +1,72 @@
+<template>
+  <div id="searcher">
+    <h1>{{ title.msg }}</h1>
+    <h2>{{ title.sub }}</h2>
+    <p>{{ body }}</p>
+    <input v-model="searchText" placeholder="Buscar..."><button v-on:click="search">Buscar</button>
+    <p>Buscando resultados para: {{ resultText }}</p>
+    <p>{{ results }}</p>
+</div>
+</template>
+
+<script>
+export default {
+  name: '#searcher',
+  data () {
+    return {
+      title: {
+        msg: 'Prueba primer componente',
+        sub: 'Buscador'
+      },
+      body: 'Esto es una primera maqueta de un buscador hecho con vue.js',
+      resultText: '',
+      articles: [
+        { item: 'ropa' },
+        { item: 'comida' },
+        { item: 'mobiliario' },
+        { item: 'herramientas' }
+      ],
+      results: ''
+    }
+  },
+  methods: {
+    search: function () {
+      var text = this.searchText
+      if (!text) {
+        this.resultText = 'vacio'
+      } else {
+        this.resultText = text
+      }
+      for (var i in this.articles) {
+        if (text === this.articles[i].item) {
+          this.results = 'Se ha encontrado ' + this.articles[i].item
+          break
+        } else {
+          this.results = 'No hay resultados'
+        }
+      }
+    }
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+h1, h2 {
+  font-weight: normal;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+a {
+  color: #42b983;
+}
+</style>
